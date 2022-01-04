@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Erasmus+ mobilit na Fakultě aplikovaných věd ZČU</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="{{ url_for('static', filename='sources/ErasmusBody.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+</head>
+
+
+
+<body>
+    <!-- Title card -->
+    <div id="title" class="card">
+        <h1>Mapa destinací Erasmus+ na FAV</h1>
+    </div>
+
+    <!-- card with controls -->
+    <div class="card controls">
+        <span>
+            <input type="checkbox" id="kiv" value="KIV">KIV</input>
+        </span>
+        <span>
+            <input type="checkbox" id="kma" value="KMA">KMA</input>
+        </span>
+        <span>
+            <input type="checkbox" id="kgm" value="KGM">KGM</input>
+        </span>
+        <span>
+            <input type="checkbox" id="kky" value="KKY">KKY</input>
+        </span>
+        <span>
+            <input type="checkbox" id="kme" value="KME">KME</input>
+        </span>
+        <span>
+            <input type="checkbox" id="kfy" value="KFY">KFY</input>
+        </span>
+        <button type="button" id="vsechny">Všechny katedry</button>
+        <button type="button" id="nic">Vyčistit mapu</button>
+    </div>
+
+    <!-- Download card -->
+    <div id="downloads" class="card">
+        <a download="IIA-CZ.PLZEN01-data-valid.geojson" href="{{ url_for('static', filename='sources/IIA-CZ.PLZEN01-data-valid.geojson') }}">export geojson</a>
+        <a download="IIA-CZ.PLZEN01-data-valid.csv" href="{{ url_for('static', filename='sources/IIA-CZ.PLZEN01-data-valid.csv') }}">export csv</a>
+    </div>
+
+    <!--DIV with map window-->
+    <div id="mapid" class="leaflet-container leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0">
+    </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
