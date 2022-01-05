@@ -15,12 +15,31 @@
     width: 60%;
 }
 
-.uni-properties {
+#uni-properties {
     width: 90%;
     margin: auto;
 }
 
-.uni-geometry {
+#uni-geometry {
     width: 90%;
     margin: auto;
+}
+
+.save {
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    padding-top: 1em;
+}
+
+.save>button {
+    font-size: x-large;
+}
+
+.back {
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+    font-size: x-large;
 }

@@ -9,12 +9,11 @@
 </head>
 
 <body>
-    <!-- TODO change university data -->
 
     <h1>{{ uni.properties['Name of institute (EN)'] }}</h1>
 
     <h2>Properties</h2>
-    <div class="uni-properties">
+    <div id="uni-properties">
         {% for key, value in uni.properties.items() %}
         <div class="field">
             <h4>{{key}}</h4>
@@ -24,7 +23,7 @@
 
 
     <h2>Geometry</h2>
-    <div class="uni-geometry">
+    <div id="uni-geometry">
         {% for key, value in uni.geometry.items() %}
         <div class="field">
             <h4>{{key}}</h4>
@@ -32,5 +31,13 @@
         </div> {% endfor %}
     </div>
 
-    <a href="/">Back to map</a>
+    <div class="save">
+        <button id="btn-save" type="button">Save</button>
+    </div>
+
+    <div class="back">
+        <a href="/">Back to map</a>
+    </div>
+
 </body>
+<script src="{{ url_for('static', filename='university.js') }}"></script>
