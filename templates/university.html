@@ -1,1 +1,36 @@
-<!-- TODO display university data -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Erasmus+ mobilit na Fakultě aplikovaných věd ZČU</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='university.css') }}" />
+</head>
+
+<body>
+    <!-- TODO change university data -->
+
+    <h1>{{ uni.properties['Name of institute (EN)'] }}</h1>
+
+    <h2>Properties</h2>
+    <div class="uni-properties">
+        {% for key, value in uni.properties.items() %}
+        <div class="field">
+            <h4>{{key}}</h4>
+            <input type="text" value="{{value}}" />
+        </div> {% endfor %}
+    </div>
+
+
+    <h2>Geometry</h2>
+    <div class="uni-geometry">
+        {% for key, value in uni.geometry.items() %}
+        <div class="field">
+            <h4>{{key}}</h4>
+            <input type="text" value="{{value}}">
+        </div> {% endfor %}
+    </div>
+
+    <a href="/">Back to map</a>
+</body>

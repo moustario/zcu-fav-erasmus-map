@@ -1,0 +1,26 @@
+.field {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+}
+
+.field>input {
+    padding-left: 1em;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 1em;
+    width: 60%;
+}
+
+.uni-properties {
+    width: 90%;
+    margin: auto;
+}
+
+.uni-geometry {
+    width: 90%;
+    margin: auto;
+}
