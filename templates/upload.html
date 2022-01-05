@@ -1,0 +1,22 @@
+<html>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}" />
+
+<body>
+    <h1>Geojson Upload</h1>
+    <h3>Use the file name <i>IIA-CZ.PLZEN01-data-valid.geojson </i> or the new values won't be loaded.</h3>
+    <form action="http://localhost:5000/upload" method="POST" enctype="multipart/form-data" class="card">
+        <input type="file" name="file" />
+        <div>
+            <input type="checkbox" id="dynamic_csv_columns" name="dynamic_csv_columns">
+            <label for="dynamic_csv_columns">Generate csv columns out of the uploaded file ?</label>
+        </div>
+        <input type="submit" class="submit" />
+    </form>
+    <div class="back">
+        <a href="/">Back to map</a>
+    </div>
+</body>
+
+</html>

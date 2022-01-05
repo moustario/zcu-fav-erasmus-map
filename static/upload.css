@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+    width: max-content;
+    padding: 2em;
+    height: 15%;
+    margin-left: 20%;
+}
+
+.submit {
+    width: 30%;
+}
