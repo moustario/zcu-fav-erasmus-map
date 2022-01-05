@@ -131,3 +131,9 @@ function odebrat(event, filter = "none") {
     }).addTo(mymap);
     mymap.setView([55, 20], 4);
 };
+
+// adding scale to map
+L.control.scale({
+    metric: true,
+    imperial: false,
+}).addTo(mymap);
