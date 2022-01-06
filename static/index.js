@@ -20,7 +20,13 @@ function getColor(d) {
 // Population info DIV information from geojson by properties feature.properties
 function onEachFeature(feature, layer) {
     layer.katedra = feature.properties.katedra;
-    let popupContent = feature.properties['Name of institute (EN)'] + "</br> <a href=/euc/" + feature.properties['EUC'].split('.').join('-') + ">More Information</a>";
+    let popupContent = feature.properties['Name of institute (EN)'];
+    popupContent += "</br> <b>EUC : </b>" + feature.properties['EUC'];
+    popupContent += "</br> <b>City : </b>" + feature.properties['City'];
+    popupContent += "</br> <b>Language : </b>" + feature.properties['Language of Instruction 1'];
+    popupContent += "</br> <b>Level : </b>" + feature.properties['Student Mobility for Studies - Level'];
+    popupContent += "</br> <a href=" + feature.properties['ECTSWebsite'] + ">Website</a>";
+    popupContent += "</br> <a href=/euc/" + feature.properties['EUC'].split('.').join('-') + ">More Information</a>";
     layer.bindPopup(popupContent);
 }
 
