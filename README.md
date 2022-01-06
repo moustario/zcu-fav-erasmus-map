@@ -7,6 +7,7 @@ It consist of a small web app using a flask (python) server for operations not a
 ## Data
 
 Source data files must be placed in a "sources" folder in the static folder.
+They can be updated through the 'upload' page.
 
 ## To run
 

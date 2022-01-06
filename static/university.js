@@ -24,7 +24,7 @@ postUniversity = () => {
         payload.geometry[key] = value;
     }
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/" + payload.properties.EUC, true);
+    xhr.open("POST", "/euc/" + payload.properties.EUC, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify((payload)));
 }

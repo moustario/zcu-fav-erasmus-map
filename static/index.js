@@ -4,6 +4,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
+var markers = L.markerClusterGroup();
+
 // Coloring of point characters of departments
 function getColor(d) {
     return d == 'KIV' ? 'green' :
@@ -24,7 +26,7 @@ function onEachFeature(feature, layer) {
 
 // point layer with all departments styled according to the colors defined above
 var body = L.geoJson(geobody, {
-    pointToLayer: function(feature, latlng) {
+    pointToLayer: (feature, latlng) => {
         return L.circleMarker(latlng, {
             radius: 8,
             fillColor: getColor(feature.properties.katedra),
@@ -36,7 +38,7 @@ var body = L.geoJson(geobody, {
     },
     onEachFeature: onEachFeature
 });
-body.addTo(mymap);
+body.addTo(markers);
 
 
 // display the legend in the map at the top right
@@ -57,7 +59,6 @@ legend.onAdd = function(mymap) {
     div.innerHTML = labels.join('<br>');
     return div;
 };
-
 legend.addTo(mymap);
 
 
@@ -65,7 +66,7 @@ legend.addTo(mymap);
 document.getElementById("vsechny").addEventListener("click", addVsechny);
 
 function addVsechny() {
-    mymap.addLayer(body);
+    markers.addLayer(body);
     mymap.setView([55, 20], 4);
     elements.forEach(faculty => {
         document.getElementById(faculty).checked = true;
@@ -95,9 +96,8 @@ elements.forEach(faculty => {
                 },
                 onEachFeature: onEachFeature
             });
-            mymap.addLayer(fac);
+            markers.addLayer(fac);
         } else {
-            console.log('checked false');
             odebrat({}, faculty.toUpperCase());
         }
     })
@@ -106,7 +106,7 @@ elements.forEach(faculty => {
 // on load every check box is ticked
 elements.forEach(faculty => {
     document.getElementById(faculty).checked = true;
-})
+});
 
 // Button to remove all departments from the map
 document.getElementById("nic").addEventListener("click", odebrat);
@@ -115,11 +115,11 @@ function odebrat(event, filter = "none") {
     mymap.eachLayer((layer) => {
         if (filter != "none") {
             if (layer.katedra == filter) {
-                mymap.removeLayer(layer);
+                markers.removeLayer(layer);
                 document.getElementById(filter.toLocaleLowerCase()).checked = false;
             }
         } else {
-            mymap.removeLayer(layer);
+            markers.removeLayer(layer);
             elements.forEach(faculty => {
                 document.getElementById(faculty).checked = false;
             })
@@ -131,6 +131,9 @@ function odebrat(event, filter = "none") {
     }).addTo(mymap);
     mymap.setView([55, 20], 4);
 };
+
+// Marker cluster handling
+mymap.addLayer(markers);
 
 // adding scale to map
 L.control.scale({

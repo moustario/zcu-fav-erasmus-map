@@ -7,6 +7,9 @@
     <title>Mapa Erasmus+ mobilit na Fakultě aplikovaných věd ZČU</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <script src="{{ url_for('static', filename='sources/ErasmusBody.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
 </head>
@@ -47,7 +50,7 @@
     <div id="downloads" class="card">
         <a download="IIA-CZ.PLZEN01-data-valid.geojson" href="{{ url_for('static', filename='sources/IIA-CZ.PLZEN01-data-valid.geojson') }}">export geojson</a>
         <a download="IIA-CZ.PLZEN01-data-valid.csv" href="{{ url_for('static', filename='sources/IIA-CZ.PLZEN01-data-valid.csv') }}">export csv</a>
-        <a href="/upload">import your geojson</a>
+        <a href="/upload">import geojson</a>
     </div>
 
     <!--DIV with map window-->
